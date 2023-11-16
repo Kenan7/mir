@@ -52,7 +52,7 @@ python manage.py test
 ## Demo for the reviewers
 
 ### Proof that the contact form works
-<img src="assets/admin_contact_form.png" width="100%" height="60%">
+<img src="assets/admin_contact_form.png" width="50%" height="50%">
 
 ### Proof that I got the email
-<img src="assets/received_email.png" width="50%" height="50%">
+<img src="assets/received_email.png" width="100%" height="60%">
