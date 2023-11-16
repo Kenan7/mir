@@ -7,13 +7,13 @@ from django.shortcuts import get_object_or_404
 class ArticleListView(ListView):
     model = BlogArticle
     paginate_by = 5
-    template_name = 'blog/article_list.html'
+    template_name = 'articles/article_list.html'
     context_object_name = 'articles'
 
 
 class ArticleDetailView(DetailView):
     model = BlogArticle
-    template_name = 'blog/article_detail.html'
+    template_name = 'articles/article_detail.html'
     context_object_name = 'article'
 
     def get_object(self):
