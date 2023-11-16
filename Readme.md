@@ -7,7 +7,7 @@ You should definitely create `.env` file with following variables since this sys
 ```bash
 DJANGO_SETTINGS_MODULE=mirblog.production_settings # must have
 DJANGO_ALLOWED_HOSTS=mir.kenan7.com # change this to your own domain
-CSRF_TRUSTED_ORIGINS=mir.kenan7.com
+DJANGO_CSRF_TRUSTED_ORIGINS=mir.kenan7.com
 
 VIRTUAL_HOST=mir.kenan7.com # change this to your own domain
 
