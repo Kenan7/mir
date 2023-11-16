@@ -7,7 +7,7 @@
         {% for article in articles %}
         <li class="list-group-item">
             <h2><a href="{% url 'article-detail' id=article.id slug=article.slug %}">{{ article.title }}</a></h2>
-            <p>Published by {{ article.author.get_full_name }} on {{ article.publication_datetime|date:"Y-m-d H:i" }}</p>
+            <p>Published by {{ article.author.get_full_name }} on {{ article.created_at|date:"Y-m-d H:i" }}</p>
         </li>
         {% empty %}
         <li class="list-group-item">No articles available.</li>
