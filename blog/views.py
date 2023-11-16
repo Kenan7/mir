@@ -9,6 +9,7 @@ class ArticleListView(ListView):
     paginate_by = 5
     template_name = 'articles/article_list.html'
     context_object_name = 'articles'
+    queryset = BlogArticle.objects.filter(is_published=True).order_by('-created_at')
 
 
 class ArticleDetailView(DetailView):
@@ -17,4 +18,9 @@ class ArticleDetailView(DetailView):
     context_object_name = 'article'
 
     def get_object(self):
-        return get_object_or_404(BlogArticle, id=self.kwargs['id'], slug=self.kwargs['slug'])
+        return get_object_or_404(
+            BlogArticle,
+            id=self.kwargs['id'],
+            slug=self.kwargs['slug'],
+            is_published=True
+        )
