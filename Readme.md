@@ -1,8 +1,8 @@
 # Mir webpage
 
-## Should have environment varialbes
+## Should have environment variables
 
-You should definitely create `.env` file with following variables since this system relies on these configurations
+You should definitely create `.env` file with the following variables since this system relies on these configurations
 
 ```bash
 DJANGO_SETTINGS_MODULE=mirblog.production_settings # must have
@@ -22,12 +22,12 @@ CONTACT_FORM_RECIPIENTS=debug@mir.de
 
 ## Deployment
 
-Simple way to deploy is to install docker and start the containers
+A simple way to deploy is to install docker and start the containers
 
 ```bash
 docker-compose up --build -d
 ```
-If you encounter error with invalid http headers, you may have old docker engine version so just try the old build version
+If you encounter an error with invalid http headers, you may have an old docker engine version so just try the old build version
 
 ```bash
 DOCKER_BUILDKIT=0 docker-compose up --build -d
@@ -43,7 +43,7 @@ python manage.py runserver # run server
 
 ## Tests
 
-To run rests, simply run
+To run tests, simply run
 
 ```bash
 python manage.py test
@@ -51,7 +51,7 @@ python manage.py test
 
 ## Demo for the reviewers
 
-### Proof that contact form works
+### Proof that the contact form works
 <img src="assets/admin_contact_form.png" width="100%" height="60%">
 
 ### Proof that I got the email
