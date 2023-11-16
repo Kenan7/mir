@@ -8,7 +8,7 @@ User = get_user_model()
 
 class BlogArticle(GenericModelMixin):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     is_published = models.BooleanField(default=False)
