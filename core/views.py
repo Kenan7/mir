@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from django.views.generic import RedirectView
 from django.views.generic.edit import FormView
-from django.core.mail import send_mail
+from django.views.generic import RedirectView
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.contrib import messages
+from django.core.mail import EmailMessage
 
 from core.forms import ContactForm
 from core.models import ContactRequest
 
 
 class HomePageView(RedirectView):
-    url = '/blog/articles/'
+    url = '/articles/'
 
 
 class ContactView(FormView):
@@ -27,13 +27,14 @@ class ContactView(FormView):
         )
 
         # Delegate this to a Celery task for production
-        send_mail(
+        email_message = EmailMessage(
             subject=f"Contact Request from {form.cleaned_data['name']}",
-            message=form.cleaned_data['content'],
+            body=form.cleaned_data['content'],
             from_email=settings.CONTACT_FORM_SENDER,
-            recipient_list=settings.CONTACT_FORM_RECIPIENTS,
-            fail_silently=False,
+            to=settings.CONTACT_FORM_RECIPIENTS,
+            headers={'Reply-To': form.cleaned_data['email']}
         )
+        email_message.send()
 
         messages.success(self.request, 'Your message was sent successfully!')
 
